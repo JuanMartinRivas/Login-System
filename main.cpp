@@ -34,7 +34,7 @@ main()
     cout << "1: Register\n2: Login\nYour Choice: ";
     cin >> choice;
 
-    if(choice == 1)
+    if(choice == 1) //Register
     {
         string username, password;
 
@@ -51,7 +51,7 @@ main()
 
         main();
     }
-    else if(choice == 2)
+    else if(choice == 2) //Login
     {
         bool status = isLoggedIn();
 
