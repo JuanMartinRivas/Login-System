@@ -13,7 +13,7 @@ bool isLoggedIn()
     cout << "Enter your password: ";
     cin >> password;
 
-    ifstream read("data\\" + username + ".txt");
+    ifstream read("c:\\" + username + ".txt");
     getline(read, un);
     getline(read, pw);
 
@@ -25,5 +25,47 @@ bool isLoggedIn()
     {
         return false;
     }
+};
 
+main()
+{
+    int choice;
+
+    cout << "1: Register\n2: Login\nYour Choice: ";
+    cin >> choice;
+
+    if(choice == 1)
+    {
+        string username, password;
+
+        cout << "Choose a username: ";
+        cin >> username;
+        cout << "Choose a password: ";
+        cin >> password;
+
+        ofstream file;
+        file.open("c:\\" + username + ".txt");
+        file << username << endl;
+        file << password;
+        file.close();
+
+        main();
+    }
+    else if(choice == 2)
+    {
+        bool status = isLoggedIn();
+
+        if(!status)
+        {
+            cout << "Username or password are incorrect!" << endl;
+            system("PAUSE");
+            return 0;
+        }
+        else
+        {
+            cout << "Welcome!" << endl;
+            system("PAUSE");
+            return 1;
+        }
+    }
 }
